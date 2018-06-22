@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+100.times do |solve|
+  Solve.create!(
+  user: "Mitch",
+  event: "3x3",
+  puzzle: "M3",
+  solve_time: (17 + rand(0..17)),
+  solve_date: Date.today,
+  note: "Blah",
+  scramble: "R U' R' U"
+  )
+  puts "Solve created! time: #{Solve.last.solve_time}"
+end
