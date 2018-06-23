@@ -11,7 +11,7 @@
   user: "Mitch",
   event: "3x3",
   puzzle: "M3",
-  solve_time: (17 + rand(0..17)),
+  solve_time: (17 + rand(0.00..17.00)),
   solve_date: Date.today,
   note: "Blah",
   scramble: "R U' R' U"
