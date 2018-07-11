@@ -1,7 +1,18 @@
 <%= render "shared/main_nav" %>
 
-<h1>Timer#timer</h1>
-<p>Find me in app/views/timer/timer.html.erb</p>
+<h1>Default Timer</h1>
+
+<!-- <script>
+    const toggleTimer = (e) => {
+        let windowEvent = window.event ? event : e;
+        if (windowEvent.keyCode === 32) {
+            Timer.toggle
+        }
+    }
+</script> -->
 
 
+<p><%= Solve.all %></p>
 
+<p><%= Solve.last.solve_time %></p>
+<p><%= Solve.last.user %></p>
