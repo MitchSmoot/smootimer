@@ -4,29 +4,21 @@
 
 <input type="text" id="searchBar">
 
-<!-- <script>
-    const toggleTimer = (e) => {
-        let windowEvent = window.event ? event : e;
-        if (windowEvent.keyCode === 32) {
-            
-        }
-    }
-</script> -->
-
-<!-- <script type="text/javascript">
-  Mousetrap.bind '4', (-> console.log '4 pressed!'), 'keyup'
-</script> -->
-
-<script>
-  documentEvent.onLoad = function documentEvent_onLoad (event)
-  {
-    Mousetrap.bind("4", -> alert "4 pressed!");
-  };
-</script>
 
 
 <p>last solve time: <%= Solve.last.solve_time %></p>
 <p>last solve id: <%= Solve.last.id %></p>
 
 
- 
+<script>
+
+  alert("Hello")
+  var hotKeys = (e) => {
+    var windowEvent = window.event ? event : e;
+    if (windowEvent.keyCode === 32) {
+      var searchBar = document.querySelector('#searchBar');
+      searchBar.focus();     
+    }
+}
+document.onkeydown = hotKeys;
+</script>
