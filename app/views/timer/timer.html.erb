@@ -10,9 +10,8 @@
 <p>last solve id: <%= Solve.last.id %></p>
 
 
-<script>
+<!-- <script>
 
-  alert("Hello")
   var hotKeys = (e) => {
     var windowEvent = window.event ? event : e;
     if (windowEvent.keyCode === 32) {
@@ -21,4 +20,34 @@
     }
 }
 document.onkeydown = hotKeys;
+</script> -->
+
+<script>
+  timing = false;
+  const toggleTimer = () => {
+    if (timing === false) {
+      var start = Date.now;
+      timing = true;
+    } else {
+      var finish = Date.now - start;
+      timing = false;
+    }
+  }
+  var timerKeyDown = (e) => {
+    var startTimer = window.event ? event : e;
+    if (startTimer.keyCode === 32 && timing === true) {
+      toggleTimer();
+      alert("Timer stopped! time: ${finish}");
+    }
+  }
+  var timerKeyUp = (e) => {
+    var stopTimer = window.event ? event : e;
+    if (stopTimer.keyCode === 32 && timing === false) {
+      toggleTimer();
+      alert("Timer started");
+    }
+  }
+document.onkeydown = timerKeyDown
+document.onkeyup = timerKeyUp
+
 </script>
