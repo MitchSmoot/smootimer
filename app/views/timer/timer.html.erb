@@ -1,53 +1,97 @@
 <%= render "shared/main_nav" %>
 
 <h1>Default Timer</h1>
+<div>
+  <input type="button" id="timerButton" value="Start">
+</div>
+<div>
+  <h1><timeDisplay>00:00:00</timeDisplay></h1>
+  previous time: <span id="timerResult"></span>
+</div>
 
-<input type="text" id="searchBar">
 
 
-
-<p>last solve time: <%= Solve.last.solve_time %></p>
-<p>last solve id: <%= Solve.last.id %></p>
-
-
-<!-- <script>
-
-  var hotKeys = (e) => {
-    var windowEvent = window.event ? event : e;
-    if (windowEvent.keyCode === 32) {
-      var searchBar = document.querySelector('#searchBar');
-      searchBar.focus();     
-    }
-}
-document.onkeydown = hotKeys;
-</script> -->
+<p>last solve time in database: <%= Solve.last.solve_time %></p>
+<p>last solve id in database: <%= Solve.last.id %></p>
 
 <script>
-  timing = false;
-  const toggleTimer = () => {
+
+// fakeTimer code
+  var timeDisplay = document.getElementsByTagName('timeDisplay')[0],
+      centiseconds = 0,
+      seconds = 0,
+      minutes = 0,
+      t;
+
+  function add() {
+    centiseconds++
+    if (centiseconds >= 100) {
+      centiseconds = 0;
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+      }
+    }
+    timeDisplay.textContent = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (centiseconds > 9 ? centiseconds : "0" + centiseconds);
+
+    fakeTimer();
+  }
+  function fakeTimer() {
+    t = setTimeout(add, 10);
+  }
+// end of fakeTimer code
+
+
+  var timing = false;
+  var finalTime = 0;
+
+    const toggleTimer = () => {
     if (timing === false) {
-      var start = Date.now;
+      var start = Date.now();
       timing = true;
+
+      fakeTimer();
     } else {
-      var finish = Date.now - start;
+      finalTime = (Date.now - start);
       timing = false;
+      
+      timeDisplay.textContent = "00:00:00";
+      centiseconds = 0; seconds = 0; minutes = 0;
+      clearTimeout(t);
+
+      document.getElementById("timerResult").innerHTML = (finalTime / 1000).toFixed(3);
     }
   }
+  var keyBuffer = true
+
   var timerKeyDown = (e) => {
     var startTimer = window.event ? event : e;
     if (startTimer.keyCode === 32 && timing === true) {
       toggleTimer();
-      alert("Timer stopped! time: ${finish}");
     }
   }
   var timerKeyUp = (e) => {
     var stopTimer = window.event ? event : e;
-    if (stopTimer.keyCode === 32 && timing === false) {
+    if (stopTimer.keyCode === 32 && timing === false && keyBuffer === true) {
       toggleTimer();
-      alert("Timer started");
+      keyBuffer = false
+    } else {
+      keyBuffer = true
     }
   }
-document.onkeydown = timerKeyDown
-document.onkeyup = timerKeyUp
+  document.onkeydown = timerKeyDown;
+  document.onkeyup = timerKeyUp;
+
+  timerButton.onclick = function() {
+    if (timing === true) {
+      toggleTimer();
+    } else {
+      toggleTimer();
+    }   
+  };
 
 </script>
+
+
+
