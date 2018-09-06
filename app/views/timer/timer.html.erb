@@ -14,6 +14,8 @@
 <p>last solve time in database: <%= Solve.last.solve_time %></p>
 <p>last solve id in database: <%= Solve.last.id %></p>
 
+
+
 <script>
 
 // fakeTimer code
@@ -44,23 +46,27 @@
 
 
   var timing = false;
+  var start = 0
   var finalTime = 0;
+  var testTime = Date.now();
 
     const toggleTimer = () => {
     if (timing === false) {
-      var start = Date.now();
+      start = Date.now();
       timing = true;
 
       fakeTimer();
     } else {
-      finalTime = (Date.now - start);
+      finalTime = (Date.now() - start);
       timing = false;
       
       timeDisplay.textContent = "00:00:00";
       centiseconds = 0; seconds = 0; minutes = 0;
       clearTimeout(t);
 
-      document.getElementById("timerResult").innerHTML = (finalTime / 1000).toFixed(3);
+      document.getElementById("timerResult").innerHTML = (Number(finalTime));
+      console.log(parseInt(finalTime));
+      console.log(Date.now());
     }
   }
   var keyBuffer = true

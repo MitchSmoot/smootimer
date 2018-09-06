@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require mousetrap/plugins
+//= require highcharts
+//= require chartkick
 //= require_tree .
 
