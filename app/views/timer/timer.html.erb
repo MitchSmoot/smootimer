@@ -13,12 +13,86 @@
 
 <p>last solve time in database: <%= Solve.last.solve_time %></p>
 <p>last solve id in database: <%= Solve.last.id %></p>
+<%= javascript_include_tag "/highcharts.js", "chartkick" %>
+<%= scatter_chart Solve.pluck(:solve_time, :id) %>
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
+<div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
 <script>
 
-// fakeTimer code
+Highcharts.chart('chart-container', {
+
+    title: {
+        text: '3x3 times'
+    },
+
+    subtitle: {
+        text: 'Current_User'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Time'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 0
+        }
+    },
+
+    series: [{
+        name: 'Current_User',
+        data: [6023, 5723, 6284, 5352, 5523, 5423, 5011, 4532, 4394, 3924, 3721, 3321, 3456, 3021, 2901, 2546, 2743, 2634, 2533, 2699, 2201, 2439, 2333]
+    }, {
+        name: 'Other_User',
+        data: [4563, 4732, 4564, 4234, 4454, 4398, 4012, 4329, 4167, 4056, 4234, 3939, 3843, 3634, 3903, 3532, 3304, 3602, 3505, 3400, 3387, 3501, 3256]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// dummyTimer code
   var timeDisplay = document.getElementsByTagName('timeDisplay')[0],
       centiseconds = 0,
       seconds = 0,
@@ -42,7 +116,7 @@
   function fakeTimer() {
     t = setTimeout(add, 10);
   }
-// end of fakeTimer code
+// end of dummyTimer code
 
 
   var timing = false;

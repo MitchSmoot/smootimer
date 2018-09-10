@@ -57,6 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'chartkick', '~> 3.0', '>= 3.0.1'
 gem 'highcharts-rails', '~> 6.0', '>= 6.0.3'
+gem 'devise', '~> 4.5'
 
 
 
