@@ -13,8 +13,6 @@
 
 <p>last solve time in database: <%= Solve.last.solve_time %></p>
 <p>last solve id in database: <%= Solve.last.id %></p>
-<%= javascript_include_tag "/highcharts.js", "chartkick" %>
-<%= scatter_chart Solve.pluck(:solve_time, :id) %>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
