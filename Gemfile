@@ -58,7 +58,7 @@ gem 'jquery-rails'
 gem 'chartkick', '~> 3.0', '>= 3.0.1'
 gem 'highcharts-rails', '~> 6.0', '>= 6.0.3'
 gem 'devise', '~> 4.5'
-
+gem 'pry', '~> 0.11.3'
 
 
 

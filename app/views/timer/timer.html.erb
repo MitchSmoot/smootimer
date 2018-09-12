@@ -13,8 +13,8 @@
 
 
 
-<p>last solve time in database: <%= Solve.last.solve_time %></p>
-<p>last solve id in database: <%= Solve.last.id %></p>
+<p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
+<p>last solve id in database: <%= SingleSolve.last.id %></p>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
@@ -22,6 +22,9 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 <div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+
+
+
 
 <script>
 
@@ -32,12 +35,12 @@ Highcharts.chart('chart-container', {
     },
 
     subtitle: {
-        text: 'Current_User'
+        text: '<%= current_user.username %>'
     },
 
     yAxis: {
         title: {
-            text: 'Time'
+            text: 'Time (Milliseconds)'
         }
     },
     legend: {
@@ -56,11 +59,18 @@ Highcharts.chart('chart-container', {
     },
 
     series: [{
-        name: 'Current_User',
-        data: [6023, 5723, 6284, 5352, 5523, 5423, 5011, 4532, 4394, 3924, 3721, 3321, 3456, 3021, 2901, 2546, 2743, 2634, 2533, 2699, 2201, 2439, 2333]
+        name: 'your_rival',
+        data: [60230, 57230, 62840, 53520, 55230, 54230, 50110, 45320, 43940, 39240, 37210, 33210, 34560, 30210, 29010, 25460, 27430, 26340, 25330, 26990, 22010, 24390, 23330]
     }, {
         name: 'Other_User',
-        data: [4563, 4732, 4564, 4234, 4454, 4398, 4012, 4329, 4167, 4056, 4234, 3939, 3843, 3634, 3903, 3532, 3304, 3602, 3505, 3400, 3387, 3501, 3256]
+        data: [45630, 47320, 45640, 42340, 44540, 43980, 40120, 43290, 41670, 40560, 42340, 39390, 38430, 36340, 39030, 35320, 33040, 36020, 35050, 34000, 33870, 35010, 32560]
+    }, {
+        name: '<%= current_user.username %>',
+        data: <%= solve_array = [] %>
+              <%= SingleSolve.each do |solve| %>
+                <% solve.solve_time >> solve_array %>
+              <% end %>
+
     }],
 
     responsive: {
@@ -79,6 +89,62 @@ Highcharts.chart('chart-container', {
     }
 
 });
+
+// Line Chart (dummy test data)
+// Highcharts.chart('chart-container', {
+
+//     title: {
+//         text: '3x3 times (dummy data)'
+//     },
+
+//     subtitle: {
+//         text: 'Current_User'
+//     },
+
+//     yAxis: {
+//         title: {
+//             text: 'Time'
+//         }
+//     },
+//     legend: {
+//         layout: 'vertical',
+//         align: 'right',
+//         verticalAlign: 'middle'
+//     },
+
+//     plotOptions: {
+//         series: {
+//             label: {
+//                 connectorAllowed: false
+//             },
+//             pointStart: 0
+//         }
+//     },
+
+//     series: [{
+//         name: 'Current_User',
+//         data: [6023, 5723, 6284, 5352, 5523, 5423, 5011, 4532, 4394, 3924, 3721, 3321, 3456, 3021, 2901, 2546, 2743, 2634, 2533, 2699, 2201, 2439, 2333]
+//     }, {
+//         name: 'Other_User',
+//         data: [4563, 4732, 4564, 4234, 4454, 4398, 4012, 4329, 4167, 4056, 4234, 3939, 3843, 3634, 3903, 3532, 3304, 3602, 3505, 3400, 3387, 3501, 3256]
+//     }],
+
+//     responsive: {
+//         rules: [{
+//             condition: {
+//                 maxWidth: 500
+//             },
+//             chartOptions: {
+//                 legend: {
+//                     layout: 'horizontal',
+//                     align: 'center',
+//                     verticalAlign: 'bottom'
+//                 }
+//             }
+//         }]
+//     }
+
+// });
 
 
 
