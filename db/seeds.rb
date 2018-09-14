@@ -27,11 +27,11 @@
   )
 puts "User created!"
 
-100.times do |single_solve|
+23.times do |single_solve|
   SingleSolve.create!(
     user_id: User.last.id,
     event: "3x3",
-    solve_time: (15000 + rand(0..17000)),
+    solve_time: (20000 + rand(0..6000)),
     solve_date: Date.today
     )
   puts "Solve #{single_solve} created! time: #{SingleSolve.last.solve_time}"

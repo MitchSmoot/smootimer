@@ -24,6 +24,7 @@
 <div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
 
+<%= chart_times %>
 
 
 <script>
@@ -66,17 +67,14 @@ Highcharts.chart('chart-container', {
         data: [45630, 47320, 45640, 42340, 44540, 43980, 40120, 43290, 41670, 40560, 42340, 39390, 38430, 36340, 39030, 35320, 33040, 36020, 35050, 34000, 33870, 35010, 32560]
     }, {
         name: '<%= current_user.username %>',
-        data: <%= solve_array = [] %>
-              <%= SingleSolve.each do |solve| %>
-                <% solve.solve_time >> solve_array %>
-              <% end %>
+        data: <%= chart_times %>
 
     }],
 
     responsive: {
         rules: [{
             condition: {
-                maxWidth: 500
+                maxWidth: 600
             },
             chartOptions: {
                 legend: {
@@ -145,18 +143,6 @@ Highcharts.chart('chart-container', {
 //     }
 
 // });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // dummyTimer code
   var timeDisplay = document.getElementsByTagName('timeDisplay')[0],
