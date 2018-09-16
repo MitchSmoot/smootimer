@@ -1,31 +1,42 @@
 <%= render "shared/main_nav" %>
+<%= render "timer_nav" %>
 <% current_event = "default" %>
 
-<%= image_tag("Smootimer-banner-alpha.png", height: '100', width: '175') %>
 
-<h1>Default Timer</h1>
-<div>
-  <input type="button" id="timerButton" value="Start">
+<div class="container">
+  <div class= "card">
+    <h1>Default Timer</h1>  
+    <div class="card-block">
+      <h1><timeDisplay>00:00:00</timeDisplay></h1>
+    <div>
+      <input type="button" id="timerButton" value="Start">
+    </div>
+      <p>previous time: <span id="timerResult"></span></p>
+      <p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
+      <p>last solve id in database: <%= SingleSolve.last.id %></p>
+    </div>
+  </div>  
 </div>
-<div>
-  <h1><timeDisplay>00:00:00</timeDisplay></h1>
-  previous time: <span id="timerResult"></span>
+
+<div class="row">
+  <div class="col-md-12">
+    <div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto">      
+    </div>
+  </div>
 </div>
 
 
 
-<p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
-<p>last solve id in database: <%= SingleSolve.last.id %></p>
 
 
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
 
-<%= chart_times %>
+
+Chart data: <%= chart_times %>
 
 
 <script>
