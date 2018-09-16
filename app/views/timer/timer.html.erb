@@ -17,7 +17,7 @@
 <p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
 <p>last solve id in database: <%= SingleSolve.last.id %></p>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -89,62 +89,6 @@ Highcharts.chart('chart-container', {
 
 });
 
-// Line Chart (dummy test data)
-// Highcharts.chart('chart-container', {
-
-//     title: {
-//         text: '3x3 times (dummy data)'
-//     },
-
-//     subtitle: {
-//         text: 'Current_User'
-//     },
-
-//     yAxis: {
-//         title: {
-//             text: 'Time'
-//         }
-//     },
-//     legend: {
-//         layout: 'vertical',
-//         align: 'right',
-//         verticalAlign: 'middle'
-//     },
-
-//     plotOptions: {
-//         series: {
-//             label: {
-//                 connectorAllowed: false
-//             },
-//             pointStart: 0
-//         }
-//     },
-
-//     series: [{
-//         name: 'Current_User',
-//         data: [6023, 5723, 6284, 5352, 5523, 5423, 5011, 4532, 4394, 3924, 3721, 3321, 3456, 3021, 2901, 2546, 2743, 2634, 2533, 2699, 2201, 2439, 2333]
-//     }, {
-//         name: 'Other_User',
-//         data: [4563, 4732, 4564, 4234, 4454, 4398, 4012, 4329, 4167, 4056, 4234, 3939, 3843, 3634, 3903, 3532, 3304, 3602, 3505, 3400, 3387, 3501, 3256]
-//     }],
-
-//     responsive: {
-//         rules: [{
-//             condition: {
-//                 maxWidth: 500
-//             },
-//             chartOptions: {
-//                 legend: {
-//                     layout: 'horizontal',
-//                     align: 'center',
-//                     verticalAlign: 'bottom'
-//                 }
-//             }
-//         }]
-//     }
-
-// });
-
 // dummyTimer code
   var timeDisplay = document.getElementsByTagName('timeDisplay')[0],
       centiseconds = 0,
@@ -195,14 +139,15 @@ Highcharts.chart('chart-container', {
       console.log(parseInt(finalTime));
       console.log(Date.now());
 
-      //post to database
+      // post to database
+
       $(document).ready(function(){
         $.ajax({
-          type: "POST",
-          url: '/single_solves/',
+          method: "POST",
+          url: '/single_solves#create',
           data: {
-            user: <% current_user %>,
-            event: <% current_event %>
+            user_id: <%= current_user.id %>,
+            event: "<%= current_event %>",
             solve_time: finalTime,
             solve_date: Date.now()
           }
