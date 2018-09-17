@@ -1,0 +1,58 @@
+Highcharts.chart('chart-container', {
+
+    title: {
+        text: '3x3 times'
+    },
+
+    subtitle: {
+        text: '<%= current_user.username %>'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Time (Milliseconds)'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 0
+        }
+    },
+
+    series: [{
+        name: 'your_rival',
+        data: [60230, 57230, 62840, 53520, 55230, 54230, 50110, 45320, 43940, 39240, 37210, 33210, 34560, 30210, 29010, 25460, 27430, 26340, 25330, 26990, 22010, 24390, 23330]
+    }, {
+        name: 'Other_User',
+        data: [45630, 47320, 45640, 42340, 44540, 43980, 40120, 43290, 41670, 40560, 42340, 39390, 38430, 36340, 39030, 35320, 33040, 36020, 35050, 34000, 33870, 35010, 32560]
+    }, {
+        name: '<%= current_user.username %>',
+        data: <%= chart_times %>
+
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 600
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});

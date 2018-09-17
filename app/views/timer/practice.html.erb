@@ -1,10 +1,10 @@
 <%= render "timer_nav" %>
-<% current_event = "default" %>
+<% current_event = "3x3" %>
 
 
 <div class="container timer-body">
   <div class= "card text-center">
-    <h1>Default Timer</h1>  
+    <h1>Practice Timer</h1>  
     <timeDisplay class="timer-display">00:00:00</timeDisplay>
     <div>
       <input type="button" id="timerButton" value="Start" class="timer-button">
@@ -26,27 +26,16 @@
         <p>previous time: <span id="timerResult"></span></p>
         <p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
         <p>last solve id in database: <%= SingleSolve.last.id %></p>
+        <p>Chart data: <%= chart_times %></p>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-
-
-
-Chart data: <%= chart_times %>
 
 
 <script>
@@ -162,7 +151,7 @@ Highcharts.chart('chart-container', {
 
       // post to database
 
-      $(document).ready(function(){
+     $(document).ready(function(){
         $.ajax({
           method: "POST",
           url: '/single_solves#create',
@@ -173,7 +162,7 @@ Highcharts.chart('chart-container', {
             solve_date: Date.now()
           }
         });
-      });
+     });
 
 
     }

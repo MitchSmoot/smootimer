@@ -1,0 +1,8 @@
+<%= render "timer_nav" %>
+<% @current_event = "2x2" %>
+<%= render 'timer_body' %>
+<%= render 'highcharts_source' %>
+<script>
+  <%= render 'line_chart.js' %>
+  <%= render 'timer.js' %>
+</script>

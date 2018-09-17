@@ -1,11 +1,11 @@
 class SingleSolvesController < ApplicationController
 
   def index
-    @single_solves = SingleSolve.single_solves_by(current_user)
+    @single_solves = SingleSolve.all
   end
 
   def create
-      SingleSolve.create(single_solve_params)
+    @single_solve = SingleSolve.create(single_solve_params)
   end
 
   private

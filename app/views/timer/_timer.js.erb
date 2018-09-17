@@ -1,0 +1,95 @@
+// dummyTimer code
+var timeDisplay = document.getElementsByTagName('timeDisplay')[0],
+    centiseconds = 0,
+    seconds = 0,
+    minutes = 0,
+    t;
+
+function add() {
+  centiseconds++
+  if (centiseconds >= 100) {
+    centiseconds = 0;
+    seconds++;
+    if (seconds >= 60) {
+      seconds = 0;
+      minutes++;
+    }
+  }
+  timeDisplay.textContent = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (centiseconds > 9 ? centiseconds : "0" + centiseconds);
+
+  fakeTimer();
+}
+function fakeTimer() {
+  t = setTimeout(add, 10);
+}
+// end of dummyTimer code
+
+
+var timing = false;
+var start = 0
+var finalTime = 0;
+var testTime = Date.now();
+
+  const toggleTimer = () => {
+  if (timing === false) {
+    start = Date.now();
+    timing = true;
+
+    fakeTimer();
+  } else {
+    finalTime = (Date.now() - start);
+    timing = false;
+    
+    timeDisplay.textContent = "00:00:00";
+    centiseconds = 0; seconds = 0; minutes = 0;
+    clearTimeout(t);
+
+    document.getElementById("timerResult").innerHTML = (Number(finalTime));
+    console.log(parseInt(finalTime));
+    console.log(Date.now());
+
+    // post to database
+
+   $(document).ready(function(){
+      $.ajax({
+        method: "POST",
+        url: '/single_solves#create',
+        data: {
+          user_id: <%= current_user.id %>,
+          event: "<%= @current_event %>",
+          solve_time: finalTime,
+          solve_date: Date.now()
+        }
+      });
+   });
+
+   
+  }
+}
+var keyBuffer = true
+
+var timerKeyDown = (e) => {
+  var startTimer = window.event ? event : e;
+  if (startTimer.keyCode === 32 && timing === true) {
+    toggleTimer();
+  }
+}
+var timerKeyUp = (e) => {
+  var stopTimer = window.event ? event : e;
+  if (stopTimer.keyCode === 32 && timing === false && keyBuffer === true) {
+    toggleTimer();
+    keyBuffer = false
+  } else {
+    keyBuffer = true
+  }
+}
+document.onkeydown = timerKeyDown;
+document.onkeyup = timerKeyUp;
+
+timerButton.onclick = function() {
+  if (timing === true) {
+    toggleTimer();
+  } else {
+    toggleTimer();
+  }   
+};
