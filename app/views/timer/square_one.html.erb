@@ -1,5 +1,7 @@
 <%= render "timer_nav" %>
 <% @current_event = "Square-1" %>
+<% @current_scramble = Scrambler::Square1.new.scramble %>
+
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>
 <script>

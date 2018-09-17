@@ -1,5 +1,6 @@
 <%= render "timer_nav" %>
 <% @current_event = "3x3" %>
+<% @current_scramble = Scrambler::ThreeByThree.new.scramble %>
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>
 <script>

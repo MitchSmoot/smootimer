@@ -1,5 +1,7 @@
 <%= render "timer_nav" %>
 <% @current_event = "Megaminx" %>
+<% @current_scramble = Scrambler::Megaminx.new.scramble %>
+
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>
 <script>
