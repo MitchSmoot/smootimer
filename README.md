@@ -69,16 +69,18 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 ## Todo List
 
-+ Rails generators
-+ Create/set up Database
-+ create homepage
-+ create timer layout
-+ Build angular app for timer
 + Connect timer to database
-+ Build charts
-+ Create accounts functionality
-+ implement chart Comparison
-+ 
+  + distinguish solve event on charts
 + final styling
+  + devise page styles
+  + render times in seconds/minutes
+  + fancy home page
++ User View Page
+  + Users
+  + current_user
++ Deploy to Heroku
+  + custom URL
++ chart refresh bug
 
++ implement chart Comparison
 
