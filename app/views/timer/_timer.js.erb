@@ -30,7 +30,9 @@ var start = 0
 var finalTime = 0;
 var testTime = Date.now();
 
-  const toggleTimer = () => {
+
+
+const toggleTimer = () => {
   if (timing === false) {
     start = Date.now();
     timing = true;
@@ -45,13 +47,26 @@ var testTime = Date.now();
     clearTimeout(t);
 
     document.getElementById("timerResult").innerHTML = (Number(finalTime));
-    console.log(parseInt(finalTime));
-    console.log(Date.now());
 
     // post to database
+    $(function(){
+      $.ajax({
+        method: "POST",
+        url: '../single_solves#create',
+        data: { single_solve: {
+          user_id: <%= current_user.id %>,
+          event: "<%= @current_event %>",
+          solve_time: finalTime,
+          solve_date: Date.now()
+        }}
+      });
+    });
    
   }
 }
+
+
+
 var keyBuffer = true
 
 var timerKeyDown = (e) => {

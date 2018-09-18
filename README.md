@@ -69,8 +69,8 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 ## Todo List
 
-+ Connect timer to database
-  + distinguish solve event on charts
++ allow time deletion
++ distinguish solve event on charts
 + final styling
   + devise page styles
   + render times in seconds/minutes

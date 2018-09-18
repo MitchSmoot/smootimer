@@ -3,7 +3,7 @@
 <% @current_scramble = Scrambler::ThreeByThree.new.scramble %>
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>
-<script>
-  <%= render 'line_chart.js' %>
-  <%= render 'timer.js' %>
-</script>
+
+<script><%= render 'line_chart.js' %></script>
+  <script><%= render 'timer.js' %></script>
+

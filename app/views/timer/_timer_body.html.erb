@@ -25,28 +25,9 @@
         <p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
         <p>last solve id in database: <%= SingleSolve.last.id %></p>
         <p>Chart data: <%= chart_times %></p>
+
       </div>
     </div>
   </div>
 </div>
 
-
-<script type="text/javascript">
-  $(function(){
-    $("input").submit(function(event) {
-      event.preventDefault();
-
-      debugger;
-    });
-    // $.ajax({
-    //   method: "POST",
-    //   url: 'localhost:300/single_solves#create',
-    //   data: {
-    //     user_id: '<%= current_user.id %>',
-    //     event: "<%= @current_event %>",
-    //     solve_time: finalTime,
-    //     solve_date: Date.now()
-    //   }
-    // });
-  });
-</script>
