@@ -75,6 +75,9 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + devise page styles
   + render times in seconds/minutes
   + fancy home page
+  + nav bar
+    + active links
+    + icon home link
 + User View Page
   + Users
   + current_user
@@ -82,5 +85,21 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + custom URL
 + chart refresh bug
 
++ practice/guest timer
++ null object pattern for Users
 + implement chart Comparison
+
++ time despersion chart
++ more User page stuff
+  + user pie chart
+  + user PBs
+
+
+
+
+
+
+
+
+
 

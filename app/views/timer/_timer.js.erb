@@ -49,20 +49,6 @@ var testTime = Date.now();
     console.log(Date.now());
 
     // post to database
-
-   $(document).ready(function(){
-      $.ajax({
-        method: "POST",
-        url: '/single_solves#create',
-        data: {
-          user_id: <%= current_user.id %>,
-          event: "<%= @current_event %>",
-          solve_time: finalTime,
-          solve_date: Date.now()
-        }
-      });
-   });
-
    
   }
 }
