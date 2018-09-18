@@ -6,7 +6,6 @@ class SingleSolvesController < ApplicationController
 
   def create
     SingleSolve.create(single_solve_params)
-    redirect_to timer_3x3_path
   end
 
   def destroy
