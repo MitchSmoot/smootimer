@@ -62,6 +62,7 @@ gem 'pry', '~> 0.11.3'
 gem 'bootstrap', '~> 4.0'
 gem 'scrambler', '~> 0.1.2'
 
+ruby "2.5.1"
 
 
 

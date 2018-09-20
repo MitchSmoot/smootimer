@@ -26,7 +26,7 @@
         <p>previous time: <span id="timerResult"></span></p>
         <p>last solve time in database: <%= SingleSolve.last.solve_time %></p>
         <p>last solve id in database: <%= SingleSolve.last.id %></p>
-        <p>Chart data: <%= chart_times %></p>
+        <p>Chart data: <script>timeArray</script></p>
       </div>
     </div>
   </div>
@@ -151,22 +151,17 @@ Highcharts.chart('chart-container', {
 
       // post to database
 
-     $(document).ready(function(){
-        $.ajax({
-          method: "POST",
-          url: '/single_solves#create',
-          data: {
-            user_id: <%= current_user.id %>,
-            event: "<%= current_event %>",
-            solve_time: finalTime,
-            solve_date: Date.now()
-          }
-        });
-     });
+    addTimeToChart(finalTime);
 
 
     }
   }
+
+  let timeArray = []
+  const addTimeToChart = (time) => {
+    timeArray.push(time)
+  }
+
   var keyBuffer = true
 
   var timerKeyDown = (e) => {

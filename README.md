@@ -12,7 +12,6 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + Basically a fancy HTML page. nothing too crazy
 
 2. Timer
-  + Angular almost certainly required for the timer and charts functionality
   + a nav or option tab to select an event to be timed.
   + A spacebar-activated timer to create each data point.
   + a chart showing a scatterplot of all times from selected event Could make use of angular-chart.js or Highcharts 
@@ -70,9 +69,7 @@ This will be a web application to facilitate progress tracking for speedcubing (
 ## Todo List
 
 + allow time deletion
-+ distinguish solve event on charts
 + final styling
-  + devise page styles
   + render times in seconds/minutes
   + fancy home page
   + nav bar
@@ -82,9 +79,12 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + Users
   + current_user
 + Deploy to Heroku
-  + custom URL
-+ chart refresh bug
+  
 
++ bugfixes
+  + username creation bug
+  + timer page double-load bug
+  + timer/spacebar mixing bug
 + practice/guest timer
 + null object pattern for Users
 + implement chart Comparison
@@ -93,7 +93,7 @@ This will be a web application to facilitate progress tracking for speedcubing (
 + more User page stuff
   + user pie chart
   + user PBs
-
++ custom URL
 
 
 
