@@ -52,7 +52,7 @@ var toggleTimer = () => {
     $(function(){
       $.ajax({
         method: "POST",
-        url: '../single_solves#create',
+        url: 'http://smootimer.herokuapp.com/single_solves#create',
         data: { single_solve: {
           user_id: <%= current_user.id %>,
           event: "<%= @current_event %>",

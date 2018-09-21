@@ -68,6 +68,10 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 ## Todo List
 
++ bugfixes (blockers)
+  + username creation bug
+  + times not working in production
+
 + allow time deletion
 + final styling
   + render times in seconds/minutes
@@ -81,10 +85,11 @@ This will be a web application to facilitate progress tracking for speedcubing (
 + Deploy to Heroku
   
 
-+ bugfixes
-  + username creation bug
+
++ bugfixes (moderate importance)
   + timer page double-load bug
   + timer/spacebar mixing bug
+  + last_time displays any user.
 + practice/guest timer
 + null object pattern for Users
 + implement chart Comparison
