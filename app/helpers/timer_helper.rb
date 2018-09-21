@@ -1,5 +1,6 @@
 module TimerHelper
-    def chart_times
+
+  def chart_times
     event = @current_event
     user = current_user.id
     solves = SingleSolve.all
@@ -9,4 +10,15 @@ module TimerHelper
     end
     time_array
   end
+
+
+  def format_milliseconds(m)
+    secs, milisecs = m.divmod(1000)
+    mins, secs = secs.divmod(60)
+    hours, mins = mins.divmod(60)
+
+    #[mins,secs,milisecs].map { |e| e.to_s.rjust(2,'0') }.join ':'
+    (mins.to_s + ":" + secs.to_s + "." + milisecs.to_s)
+  end
+
 end
