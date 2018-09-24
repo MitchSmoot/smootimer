@@ -31,28 +31,6 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + User list by name
   + User search
 
-## Database
-1. User
-  + Name: string
-  + password: string
-
-  + email: string (only if needed)
-
-2. Solve
-  + User: string
-  + Event: string
-  + Puzzle: string
-  + solve_time: number? integer? (time in seconds)
-  + solve_date: datetime
-  + note: text (optional)
-
-  + scramble: text 
-  OR
-  + scramble_seed: string?
-  + scramble_version: string
-
-  (1st option is easier, 2nd option will save space)
-
 
 ## Must-have Features (minimum releasable state)
 + Functional Database
@@ -70,11 +48,9 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 + bugfixes (blockers)
   + username creation bug
-  + times not working in production
 
 + allow time deletion
 + final styling
-  + render times in seconds/minutes
   + fancy home page
   + nav bar
     + active links
@@ -82,8 +58,6 @@ This will be a web application to facilitate progress tracking for speedcubing (
 + User View Page
   + Users
   + current_user
-+ Deploy to Heroku
-  
 
 
 + bugfixes (moderate importance)
@@ -99,6 +73,7 @@ This will be a web application to facilitate progress tracking for speedcubing (
   + user pie chart
   + user PBs
 + custom URL
+
 
 
 

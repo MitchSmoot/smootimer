@@ -1,0 +1,9 @@
+<%= render "timer_nav" %>
+<% @current_event = "7x7" %>
+<% @current_scramble = Scrambler::SevenBySeven.new.scramble %>
+<%= render 'timer_body' %>
+<%= render 'highcharts_source' %>
+<script>
+  <%= render 'line_chart.js' %>
+  <%= render 'timer.js' %>
+</script>
