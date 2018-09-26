@@ -1,0 +1,2 @@
+module SingleSolvesHelper
+end

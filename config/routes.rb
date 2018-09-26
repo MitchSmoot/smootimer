@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :single_solves
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   get 'timer/practice'
   get 'timer/2x2'
@@ -22,5 +23,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-    resources :single_solves, :only => [:create, :destroy]
+    resources :single_solves
 end
