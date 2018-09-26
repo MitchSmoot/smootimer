@@ -22,18 +22,24 @@
     <div class="col-md-4">
       <div class="card timer-panel-left">
         <p>Previous Time: <%= format_milliseconds(SingleSolve.last.solve_time) %></p>
-        <table>
-          <th>#</th>
-          <th>Time</th>
-          <th>Delete</th>
-        <% @list_solves.each do |t| %>
-          <tr>
-            <td><%= t.id %></td>
-            <td><%= format_milliseconds(t.solve_time) %></td>
-            <td><%= link_to '   X', single_solf_path(t), :confirm => 'You sure?', :method => :delete %></td>
-          </tr>
+        <% if @list_solves %>
+          <table>
+            <th>#</th>
+            <th>Time</th>
+            <th>Delete</th>
+          <% @list_solves.each do |t| %>
+            <tr>
+              <td><%= t.id %></td>
+              <td><%= format_milliseconds(t.solve_time) %></td>
+              <td><%= link_to '   X', single_solf_path(t), :confirm => 'You sure?', :method => :delete %></td>
+            </tr>
+          <% end %>
+          </table>
+        <% else %>
+          <div>
+            <p>You have not yet recorded any solves in this event</p>
+          </div>
         <% end %>
-        </table>
       </div>
     </div>
   </div>
