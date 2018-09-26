@@ -4,6 +4,6 @@ class TimerController < ApplicationController
   end
 
   def ThreeByThree
-    @list_solves = SingleSolve.where(user: current_user, event: "3x3")
+    @list_solves = SingleSolve.where(user: current_user, event: $current_event)
   end
 end

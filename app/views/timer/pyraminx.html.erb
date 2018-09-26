@@ -1,5 +1,5 @@
 <%= render "timer_nav" %>
-<% @current_event = "Pyraminx" %>
+<% $current_event = "Pyraminx" %>
 <% @current_scramble = Scrambler::Pyraminx.new.scramble %>
 
 <%= render 'timer_body' %>

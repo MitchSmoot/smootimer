@@ -1,7 +1,7 @@
 module TimerHelper
 
   def chart_times
-    event = @current_event
+    event = $current_event
     user = current_user.id
     solves = SingleSolve.all
     time_array = []

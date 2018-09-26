@@ -1,5 +1,5 @@
 <%= render "timer_nav" %>
-<% @current_event = "Clock" %>
+<% $current_event = "Clock" %>
 <% @current_scramble = Scrambler::Clock.new.scramble %>
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>

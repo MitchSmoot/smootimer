@@ -1,7 +1,6 @@
 <%= render "timer_nav" %>
-<% @current_event = "4x4" %>
-<% @current_scramble = Scrambler::FourByFour.new.scramble %>
-
+<% $current_event = "3x3 With Feet" %>
+<% @current_scramble = Scrambler::ThreeByThree.new.scramble %>
 <%= render 'timer_body' %>
 <%= render 'highcharts_source' %>
 <script>

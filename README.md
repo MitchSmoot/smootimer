@@ -46,12 +46,13 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 ## Todo List
 
-+ allow time deletion
 + final styling
   + fancy home page
   + nav bar
     + active links
     + icon home link
++ update readme
+
 + User View Page
   + Users
   + current_user

@@ -53,7 +53,7 @@ var toggleTimer = () => {
         url: 'http://smootimer.herokuapp.com/single_solves#create',
         data: { single_solve: {
           user_id: <%= current_user.id %>,
-          event: "<%= @current_event %>",
+          event: "<%= $current_event %>",
           solve_time: finalTime,
           solve_date: Date.now()
         }}
