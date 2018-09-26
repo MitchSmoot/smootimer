@@ -22,8 +22,15 @@
     <div class="col-md-4">
       <div class="card timer-panel-left">
         <p>Previous Time: <%= format_milliseconds(SingleSolve.last.solve_time) %></p>
-        <p>Chart data: <%= chart_times %></p>
+        <ol>
+        <% @list_solves.each do |t| %>
+          <li>
 
+            <%= format_milliseconds(t.solve_time) %>
+            <%= link_to 'Destroy', single_solves_path(t), :confirm => 'You sure?', :method => :destroy %>
+          </li>
+        <% end %>
+        </ol>
       </div>
     </div>
   </div>

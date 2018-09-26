@@ -46,9 +46,6 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 ## Todo List
 
-+ bugfixes (blockers)
-  + username creation bug
-
 + allow time deletion
 + final styling
   + fancy home page

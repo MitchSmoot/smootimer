@@ -11,13 +11,13 @@ class SingleSolvesController < ApplicationController
   def destroy
     single_solve = SingleSolve.find(params[:id])
     single_solve.destroy
-    redirect_to timer_3x3_path
+    redirect_to timer_ThreeByThree_path
   end
 
   private
 
     def single_solve_params
-      params.require(:single_solve).permit(:user_id, :event, :solve_time, :solve_date)
+      params.require(:single_solve).permit(:user_id)
     end
 
 end
