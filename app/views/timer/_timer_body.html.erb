@@ -1,27 +1,29 @@
-<div class="container timer-body">
-  <div class= "card text-center">
-    <h1><%= $current_event %> Timer</h1>  
-    <timeDisplay class="timer-display">00:00:00</timeDisplay>
-    <div>
-      <input type="button" id="timerButton" value="Start" class="timer-button">
-    </div>
-    <div>
-      <p>
-        <%= @current_scramble %>
-      </p>
-    </div>
-  </div>
-</div>
-
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto">      
+      <div class="timer-block">
+        <div class="card text-center">
+          <h1><%= $current_event %> Timer</h1>  
+          <timeDisplay class="timer-display">00:00:00</timeDisplay>
+          <div>
+            <input type="button" id="timerButton" value="Start" class="timer-button">
+          </div>
+          <div>
+            <p>
+              <%= @current_scramble %>
+            </p>
+          </div>
+        </div>
       </div>
+      <div id="chart-container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto">
+        
+      </div>
+
     </div>
     <div class="col-md-4">
       <div class="card timer-panel-left">
-        <h4>Previous Time: <b><%= format_milliseconds(SingleSolve.last.solve_time) %></b></h4>
+        <h3>Previous Time:</h3>
+        <h1 class="text-center"><b><%= format_milliseconds(SingleSolve.last.solve_time) %></b></h1>
         <% if @list_solves %>
           <table>
             <th>#</th>
