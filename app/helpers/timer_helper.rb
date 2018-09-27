@@ -21,4 +21,14 @@ module TimerHelper
     (mins.to_s + ":" + secs.to_s + "." + milisecs.to_s)
   end
 
+  def time_table(times)
+    table_array = []
+    times.each do |t|
+      if table_array.length <= 24
+        table_array.unshift(t)
+      end
+    end
+    table_array
+  end
+
 end

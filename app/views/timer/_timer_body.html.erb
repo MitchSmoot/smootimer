@@ -29,7 +29,7 @@
             <th>#</th>
             <th>Time</th>
             <th>Delete</th>
-          <% @list_solves.each do |t| %>
+          <% time_table(@list_solves).each do |t| %>
             <tr>
               <td><%= t.id %></td>
               <td><%= format_milliseconds(t.solve_time) %></td>
