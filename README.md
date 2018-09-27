@@ -78,6 +78,3 @@ This will be a web application to facilitate progress tracking for speedcubing (
 
 
 
-
-
-
