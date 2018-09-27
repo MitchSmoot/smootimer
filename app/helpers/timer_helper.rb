@@ -24,8 +24,9 @@ module TimerHelper
   def time_table(times)
     table_array = []
     times.each do |t|
+      table_array.unshift(t)
       if table_array.length <= 24
-        table_array.unshift(t)
+        table_array.pop
       end
     end
     table_array
